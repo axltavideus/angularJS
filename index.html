@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demoApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<style>
+    .highlight {
+        background-color: yellow;
+    }
+</style>
+
+<body ng-controller="DemoController">
+    <div>
+        <!-- ng-model -->
+        <div>
+            <h3>ng-model</h3>
+            <input type="text" ng-model="name" placeholder="Enter your name">
+            <p>Hello, {{ name }}!</p>
+        </div>
+
+        <!-- ng-repeat -->
+        <div>
+            <h3>ng-repeat</h3>
+            <ul>
+                <li ng-repeat="item in items">{{ item }}</li>
+            </ul>
+        </div>
+
+        <!-- ng-click -->
+        <div>
+            <h3>ng-click</h3>
+            <button ng-click="sayHello()">Click Me</button>
+        </div>
+
+        <!-- ng-show / ng-hide -->
+        <div>
+            <h3>ng-show / ng-hide</h3>
+            <button ng-click="isVisible = !isVisible">Toggle Visibility</button>
+            <p ng-show="isVisible">This paragraph is visible.</p>
+        </div>
+
+        <!-- ng-if -->
+        <div>
+            <h3>ng-if</h3>
+            <button ng-click="isVisible = !isVisible">Toggle Condition</button>
+            <p ng-if="isVisible">This paragraph is conditionally rendered using ng-if.</p>
+        </div>
+
+        <!-- ng-class -->
+        <div>
+            <h3>ng-class</h3>
+            <p ng-class="{ 'highlight': isHighlighted }">Highlight me</p>
+            <button ng-click="isHighlighted = !isHighlighted">Toggle Highlight</button>
+        </div>
+
+        <!-- ng-style -->
+        <div>
+            <h3>ng-style</h3>
+            <p ng-style="{ 'color': textColor }">This text changes color.</p>
+            <input type="text" ng-model="textColor" placeholder="Enter color (e.g., 'red')">
+        </div>
+
+        <!-- ng-submit -->
+        <div>
+            <h3>ng-submit</h3>
+            <form ng-submit="submitForm()">
+                <input type="text" ng-model="formData.name" placeholder="Enter your name">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- ng-include -->
+        <div>
+            <h3>ng-include</h3>
+            <div ng-include="'content.html'"></div>
+        </div>
+
+        <div ng-switch="user.role">
+            <h3>ng-switch</h3>
+            <p ng-switch-when="admin">Selamat datang, Admin!</p>
+            <p ng-switch-when="user">Selamat datang, Pengguna!</p>
+            <p ng-switch-when="guest">Selamat datang, Tamu!</p>
+            <p ng-switch-default>Peran tidak diketahui</p>
+        </div>
+    </div>
+</body>
+
+</html>
